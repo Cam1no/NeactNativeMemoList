@@ -3,19 +3,22 @@ import { View } from 'react-native';
 import React, { Component } from 'react';
 import { Container, Header, Content, Form, Item, Input, Body, Title, Button, Text } from 'native-base';
 
-export default class Login extends Component {
+export default class SignIn extends Component {
   render() {
     return (
       <Container>
         <Header>
           <Body>
             <Title>
-              Login
+              Register
             </Title>
           </Body>
         </Header>
         <Content>
           <Form>
+            <Item>
+              <Input placeholder="Username" />
+            </Item>
             <Item>
               <Input placeholder="Email" />
             </Item>
