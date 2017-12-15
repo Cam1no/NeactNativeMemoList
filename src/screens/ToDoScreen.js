@@ -8,7 +8,7 @@ import { Container, Header, Content,
 
 import { AddToDo } from '../components/AddToDo';
 
-export default class ToDo extends Component {
+export default class ToDoScreen extends Component {
   render() {
     return (
       <Container>
