@@ -9,19 +9,13 @@ import { Container, Header, Content,
 import { AddToDo } from '../components/AddToDo';
 
 export default class ToDoScreen extends Component {
+  constructor(props){
+    super(props);
+  }
+  
   render() {
     return (
       <Container>
-        <Header>
-          <Left/>
-          <Body>
-            <Title>
-              ToDo
-            </Title>
-          </Body>
-          <Right>
-          </Right>
-        </Header>
         <Content>
           <SwipeRow
             rightOpenValue={-75}
@@ -39,7 +33,7 @@ export default class ToDoScreen extends Component {
         </Content>
         <Footer>
           <Button>
-            <Icon name='arrow-up' onPress={() => alert('AddTodo')}/>
+            <Icon name='arrow-up' onPress={() => this.props.navigation.navigate('EditTodo')}/>
           </Button>
         </Footer>
       </Container>

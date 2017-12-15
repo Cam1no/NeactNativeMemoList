@@ -19,7 +19,7 @@ export default class LoginScreen extends Component {
             <Item last>
               <Input placeholder="Password" />
             </Item>
-            <Button block info>
+            <Button block info onPress={() => this.props.navigation.navigate('ToDo')}>
               <Text>
                 送信
               </Text>
