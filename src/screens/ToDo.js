@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Container, Header, Content,
          ListItem, List, Input,
          Body, Title, Button, Text,
-         Footer,Icon, Right, Left
+         Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 
 import { AddToDo } from '../components/AddToDo';
@@ -20,23 +20,26 @@ export default class ToDo extends Component {
             </Title>
           </Body>
           <Right>
-            <Button transparent>
-              <Icon name="trash" />
-            </Button>
           </Right>
         </Header>
         <Content>
-          <List>
-            <ListItem>
-              <Text>
-                HelloWorld
-              </Text>
-            </ListItem>
-          </List>
+          <SwipeRow
+            rightOpenValue={-75}
+            body={
+              <View>
+                <Text>SwipeRow Body Text</Text>
+              </View>
+            }
+            right={
+              <Button danger onPress={() => alert('Trash')}>
+                <Icon active name="trash" />
+              </Button>
+            }
+          />
         </Content>
         <Footer>
           <Button>
-            <Icon name='arrow-up'/>
+            <Icon name='arrow-up' onPress={() => alert('AddTodo')}/>
           </Button>
         </Footer>
       </Container>
