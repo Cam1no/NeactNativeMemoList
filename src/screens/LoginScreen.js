@@ -50,11 +50,4 @@ const mapStateToProps = state => ({
   password: state.password,
 });
 
-const mapDispatchToProps = () => {
-  return {
-    setEmail,
-    setPassword,
-  }
-}
-
 export default connect(mapStateToProps, {setEmail, setPassword})(LoginScreen);
