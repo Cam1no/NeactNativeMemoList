@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container, Header, Body, Title, Footer } from 'native-base';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import reducer from './src/reducers/';
 import RootNavigator from './src/RootNavigator';
+import thunk from 'redux-thunk';
 
-
-const store = createStore(reducer);
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default class App extends React.Component {
   render() {

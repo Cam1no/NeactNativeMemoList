@@ -1,9 +1,11 @@
 /* @flow */
 import { View } from 'react-native';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setEmail, setPassword } from '../actions/index';
 import { Container, Header, Content, Form, Item, Input, Left, Right, Body, Title, Button, Text } from 'native-base';
 
-export default class LoginScreen extends Component {
+export class LoginScreen extends Component {
   constructor(props){
     super(props);
   }
@@ -14,10 +16,16 @@ export default class LoginScreen extends Component {
         <Content>
           <Form>
             <Item>
-              <Input placeholder="Email" />
+              <Input
+                placeholder="Email"
+                onChangeText={(email) => this.props.setEmail(email)}
+              />
             </Item>
             <Item last>
-              <Input placeholder="Password" />
+              <Input
+                placeholder="Password"
+                onChangeText={(password) => this.props.setPassword(password)}
+              />
             </Item>
             <Button block info onPress={() => this.props.navigation.navigate('ToDo')}>
               <Text>
@@ -35,3 +43,18 @@ export default class LoginScreen extends Component {
     );
   }
 }
+
+// storeに格納されているstateを引っ張り出す
+const mapStateToProps = state => ({
+  email: state.email,
+  password: state.password,
+});
+
+const mapDispatchToProps = () => {
+  return {
+    setEmail,
+    setPassword,
+  }
+}
+
+export default connect(mapStateToProps, {setEmail, setPassword})(LoginScreen);
