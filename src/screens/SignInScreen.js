@@ -24,7 +24,7 @@ export default class SignInScreen extends Component {
               </Text>
             </Button>
           </Form>
-          <Button danger onPress={() => this.props.navigation.navigate('Login')}>
+          <Button danger onPress={() => alert('Thanks')}>
             <Text>
               Login
             </Text>
