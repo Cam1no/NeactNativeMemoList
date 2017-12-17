@@ -33,7 +33,7 @@ export default class ToDoScreen extends Component {
         </Content>
         <Footer>
           <Button>
-            <Icon name='arrow-up' onPress={() => this.props.navigation.navigate('EditTodo')}/>
+            <Icon name='arrow-up' onPress={() => this.props.navigation.navigate('AddTodo')}/>
           </Button>
         </Footer>
       </Container>

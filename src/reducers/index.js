@@ -17,6 +17,20 @@ const password = (state = '', action) => {
       return state;
   }
 }
+const todos = (state = [], action) => {
+  console.log(state);
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [
+        {
+          text: action.text,
+          created_at: new Date(),
+        },
+        ...state,
+      ];
+    default:
+      return state;
+  }
+}
 
-
-export default combineReducers({ email, password });
+export default combineReducers({ email, password, todos });

@@ -5,7 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import LoginScreen from './screens/LoginScreen';
 import SignInScreen from './screens/SignInScreen';
 import ToDoScreen from './screens/ToDoScreen';
-import EditTodoScreen from './screens/EditTodoScreen';
+import AddTodoScreen from './screens/AddTodoScreen';
 
 const RootNavigator = StackNavigator({
   Login: {
@@ -26,8 +26,8 @@ const RootNavigator = StackNavigator({
       headerTitle: 'ToDoList',
     },
   },
-  EditTodo: {
-    screen: EditTodoScreen,
+  AddTodo: {
+    screen: AddTodoScreen,
     navigationOptions: {
       headerTitle: 'EditTodo',
     },
