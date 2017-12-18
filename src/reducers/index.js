@@ -43,8 +43,7 @@ const todos = (state = [], action) => {
     case 'ADD_TODO':
       return [
         {
-          text: action.text,
-          created_at: new Date(),
+          body: action.body,
         },
         ...state,
       ];

@@ -16,4 +16,4 @@ export const setCurrentUser =
     }
   });
 
-export const addTodo = text => dispatch => dispatch({ type: 'ADD_TODO', text })
+export const addTodo = body => dispatch => dispatch({ type: 'ADD_TODO', body })
