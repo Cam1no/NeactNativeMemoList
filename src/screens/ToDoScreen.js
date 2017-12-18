@@ -6,8 +6,6 @@ import { Container, Header, Content,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 
-import { AddToDo } from '../components/AddToDo';
-
 export default class ToDoScreen extends Component {
   constructor(props){
     super(props);
