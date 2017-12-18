@@ -9,7 +9,6 @@ import thunk from 'redux-thunk';
 import firebase from 'firebase';
 import { firebaseConfig } from './src/config/firebase';
 
-
 firebase.initializeApp(firebaseConfig);
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
