@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
 
+const initialState = {
+  uid: null,
+  displayName: null
+}
+
 const email = (state = '', action) => {
   switch (action.type) {
     case 'CHANGE_EMAIL':
@@ -18,14 +23,21 @@ const password = (state = '', action) => {
   }
 }
 
-const user = (state = '', action) => {
+const currentUser = (state = initialState, action) => {
+  console.log("state", state);
+  console.log("action", action);
   switch (action.type) {
-    case 'CHANGE_USERNAME':
-      return action.username;
+    case 'SET_CURRENT_USER':
+      return {
+        displayName: action.payload.displayName,
+        email: action.payload.email,
+        uid: action.payload.uid,
+      }
     default:
       return state;
   }
 }
+
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -41,4 +53,4 @@ const todos = (state = [], action) => {
   }
 }
 
-export default combineReducers({ email, password, todos, user });
+export default combineReducers({ email, password, todos, currentUser });

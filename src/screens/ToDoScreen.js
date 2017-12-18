@@ -1,14 +1,16 @@
 import { View } from 'react-native';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Container, Header, Content,
          ListItem, List, Input,
          Body, Title, Button, Text,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 
-export default class ToDoScreen extends Component {
+export class ToDoScreen extends Component {
   constructor(props){
     super(props);
+    console.log(this.props.currentUser);
   }
 
   render() {
@@ -38,3 +40,10 @@ export default class ToDoScreen extends Component {
     );
   }
 }
+
+
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+});
+
+export default connect(mapStateToProps)(ToDoScreen);

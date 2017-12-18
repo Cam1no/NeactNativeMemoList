@@ -5,4 +5,15 @@ export const setPassword = password => dispatch => dispatch({ type: 'CHANGE_PASS
 
 export const setUserName = username => dispatch => dispatch({ type: 'CHANGE_USERNAME', username });
 
+export const setCurrentUser =
+  user => dispatch =>
+  dispatch({
+    type: 'SET_CURRENT_USER',
+    payload: {
+      displayName: user.displayName,
+      email: user.email,
+      uid: user.uid,
+    }
+  });
+
 export const addTodo = text => dispatch => dispatch({ type: 'ADD_TODO', text })

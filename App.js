@@ -11,7 +11,7 @@ import firebaseConfig from './src/config/firebase';
 
 firebase.initializeApp(firebaseConfig);
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default class App extends React.Component {
   render() {

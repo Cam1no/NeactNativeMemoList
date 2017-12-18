@@ -2,7 +2,7 @@
 import { View } from 'react-native';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setEmail, setPassword } from '../actions/index';
+import { setEmail, setPassword, setCurrentUser } from '../actions/index';
 import { Container, Header, Content, Form, Item, Input, Left, Right, Body, Title, Button, Text } from 'native-base';
 import firebase from 'firebase';
 
@@ -16,6 +16,7 @@ export class LoginScreen extends Component {
     firebase.auth().signInWithEmailAndPassword(this.props.email, this.props.password)
       .then((user) => {
         console.log("success", user);
+        this.props.setCurrentUser(user);
         this.props.navigation.navigate('ToDo');
       })
       .catch((error) => {
@@ -59,4 +60,4 @@ const mapStateToProps = state => ({
   password: state.password,
 });
 
-export default connect(mapStateToProps, {setEmail, setPassword})(LoginScreen);
+export default connect(mapStateToProps, {setEmail, setPassword, setCurrentUser})(LoginScreen);
