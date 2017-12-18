@@ -2,23 +2,49 @@
 import { View } from 'react-native';
 import React, { Component } from 'react';
 import { Container, Header, Content, Form, Item, Input, Body, Title, Button, Text } from 'native-base';
+import { connect } from 'react-redux';
+import { setEmail, setPassword, setUserName } from '../actions/index';
+import firebase from 'firebase';
 
-export default class SignInScreen extends Component {
+export class SignInScreen extends Component {
+
+  handleSubmit(){
+    console.log(this.props);
+    firebase.auth().createUserWithEmailAndPassword(this.props.email, this.props.password)
+      .then((user) => {
+        console.log("success", user);
+        this.props.navigation.navigate('ToDo');
+      })
+      .catch((error) => {
+        console.log("firebase error", error);
+      });
+  }
+
   render() {
     return (
       <Container>
         <Content>
           <Form>
             <Item>
-              <Input placeholder="Username" />
+              <Input
+                placeholder="Username"
+                onChangeText={(username) => this.props.setUserName(username)}
+              />
             </Item>
             <Item>
-              <Input placeholder="Email" />
+              <Input
+                placeholder="Email"
+                onChangeText={(email) => this.props.setEmail(email)}
+              />
             </Item>
             <Item last>
-              <Input placeholder="Password" />
+              <Input
+                placeholder="Password"
+                onChangeText={(password) => this.props.setPassword(password)}
+                secureTextEntry={true}
+              />
             </Item>
-            <Button block info>
+            <Button info onPress={this.handleSubmit.bind(this)}>
               <Text>
                 送信
               </Text>
@@ -34,3 +60,12 @@ export default class SignInScreen extends Component {
     );
   }
 }
+
+// storeに格納されているstateを引っ張り出す
+const mapStateToProps = state => ({
+  email: state.email,
+  password: state.password,
+  username: state.username,
+});
+
+export default connect(mapStateToProps, {setEmail, setPassword, setUserName})(SignInScreen);

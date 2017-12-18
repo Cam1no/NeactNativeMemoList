@@ -17,8 +17,16 @@ const password = (state = '', action) => {
       return state;
   }
 }
+
+const user = (state = '', action) => {
+  switch (action.type) {
+    case 'CHANGE_USERNAME':
+      return action.username;
+    default:
+      return state;
+  }
+}
 const todos = (state = [], action) => {
-  console.log(state);
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -33,4 +41,4 @@ const todos = (state = [], action) => {
   }
 }
 
-export default combineReducers({ email, password, todos });
+export default combineReducers({ email, password, todos, user });

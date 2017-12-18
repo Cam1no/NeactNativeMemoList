@@ -25,6 +25,7 @@ export class LoginScreen extends Component {
               <Input
                 placeholder="Password"
                 onChangeText={(password) => this.props.setPassword(password)}
+                secureTextEntry={true}
               />
             </Item>
             <Button block info onPress={() => this.props.navigation.navigate('ToDo')}>

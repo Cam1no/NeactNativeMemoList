@@ -7,7 +7,7 @@ import reducer from './src/reducers/';
 import RootNavigator from './src/RootNavigator';
 import thunk from 'redux-thunk';
 import firebase from 'firebase';
-import { firebaseConfig } from './src/config/firebase';
+import firebaseConfig from './src/config/firebase';
 
 firebase.initializeApp(firebaseConfig);
 
