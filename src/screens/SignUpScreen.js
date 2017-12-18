@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { setEmail, setPassword, setUserName } from '../actions/index';
 import firebase from 'firebase';
 
-export class SignInScreen extends Component {
+export class SignUpScreen extends Component {
 
   handleSubmit(){
     console.log(this.props);
@@ -50,7 +50,7 @@ export class SignInScreen extends Component {
               </Text>
             </Button>
           </Form>
-          <Button danger onPress={() => alert('Thanks')}>
+          <Button danger onPress={() => this.props.navigation.navigate('Login')}>
             <Text>
               Login
             </Text>
@@ -68,4 +68,4 @@ const mapStateToProps = state => ({
   username: state.username,
 });
 
-export default connect(mapStateToProps, {setEmail, setPassword, setUserName})(SignInScreen);
+export default connect(mapStateToProps, {setEmail, setPassword, setUserName})(SignUpScreen);

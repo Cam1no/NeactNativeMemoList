@@ -3,21 +3,21 @@ import { View, Text } from 'react-native';
 import { Button } from 'native-base';
 import { StackNavigator } from 'react-navigation';
 import LoginScreen from './screens/LoginScreen';
-import SignInScreen from './screens/SignInScreen';
+import SignUpScreen from './screens/SignUpScreen';
 import ToDoScreen from './screens/ToDoScreen';
 import AddTodoScreen from './screens/AddTodoScreen';
 
 const RootNavigator = StackNavigator({
+  SignUp: {
+    screen: SignUpScreen,
+    navigationOptions: {
+      headerTitle: 'Register',
+    },
+  },
   Login: {
     screen: LoginScreen,
     navigationOptions: {
       headerTitle: 'Login',
-    },
-  },
-  SignIn: {
-    screen: SignInScreen,
-    navigationOptions: {
-      headerTitle: 'Register',
     },
   },
   ToDo: {

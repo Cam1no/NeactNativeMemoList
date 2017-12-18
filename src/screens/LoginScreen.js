@@ -34,11 +34,6 @@ export class LoginScreen extends Component {
               </Text>
             </Button>
           </Form>
-          <Button danger onPress={() => this.props.navigation.navigate('SignIn')}>
-            <Text>
-              Signin
-            </Text>
-          </Button>
         </Content>
       </Container>
     );
