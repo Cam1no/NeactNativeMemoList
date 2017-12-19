@@ -5,6 +5,14 @@ import { connect } from 'react-redux';
 import { setEmail, setPassword, setCurrentUser } from '../actions/index';
 import { Container, Header, Content, Form, Item, Input, Left, Right, Body, Title, Button, Text } from 'native-base';
 import firebase from 'firebase';
+import { NavigationActions } from 'react-navigation';
+
+const resetAction = NavigationActions.reset({
+  index: 0,
+  actions: [
+    NavigationActions.navigate({ routeName: 'ToDo'})
+  ]
+});
 
 export class LoginScreen extends Component {
   constructor(props){
@@ -17,7 +25,7 @@ export class LoginScreen extends Component {
       .then((user) => {
         console.log("success", user);
         this.props.setCurrentUser(user);
-        this.props.navigation.navigate('ToDo');
+        this.props.navigation.dispatch(resetAction);
       })
       .catch((error) => {
         console.log("firebase error", error);
