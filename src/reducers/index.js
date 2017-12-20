@@ -47,6 +47,16 @@ const todos = (state = [], action) => {
         },
         ...state,
       ];
+    case 'GET_MEMO_LISTS':
+      return (
+        action.lists.map((list) => {
+          return {
+            body: list.body,
+            createdOn: list.createdOn,
+          }
+        })
+      )
+
     default:
       return state;
   }
