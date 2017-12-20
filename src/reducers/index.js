@@ -48,15 +48,12 @@ const todos = (state = [], action) => {
         ...state,
       ];
     case 'GET_MEMO_LISTS':
-      return (
-        action.lists.map((list) => {
-          return {
-            body: list.body,
-            createdOn: list.createdOn,
-          }
-        })
-      )
-
+      const memoList = [];
+      action.lists.forEach((list) => {
+        memoList.push(list);
+      })
+      console.log("reducer", memoList);
+      return memoList;
     default:
       return state;
   }
