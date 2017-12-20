@@ -6,11 +6,29 @@ import { Container, Header, Content,
          Body, Title, Button, Text,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
+import firebase from 'firebase';
+require('firebase/firestore')
 
 export class ToDoScreen extends Component {
   constructor(props){
     super(props);
-    console.log(this.props.currentUser);
+  }
+
+  componentWillMount() {
+    const db = firebase.firestore();
+    const memoList = [];
+    db.collection(`users/${this.props.currentUser.uid}/memos`)
+      .get()
+      .then((querySnapshot) => {
+        console.log(querySnapshot);
+        querySnapshot.forEach((doc) => {
+          memoList.push(doc.data());
+        });
+        console.log(memoList);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   render() {
@@ -43,7 +61,8 @@ export class ToDoScreen extends Component {
 
 
 const mapStateToProps = state => ({
-  currentUser: state.currentUser
+  currentUser: state.currentUser,
+  memoList: [],
 });
 
 export default connect(mapStateToProps)(ToDoScreen);

@@ -19,7 +19,7 @@ export class AddTodoScreen extends Component {
     const db = firebase.firestore();
     console.log(this.props);
     db.collection(`users/${this.props.currentUser.uid}/memos`).add({
-        body: 'Memooo',
+        body: this.state.text,
         createdOn: new Date()
     })
     .then((docRef) => {
