@@ -33,7 +33,6 @@ export class ToDoScreen extends Component {
   }
 
   render() {
-    console.log(this.props.memoList);
     return (
       <Container>
         <Content>
