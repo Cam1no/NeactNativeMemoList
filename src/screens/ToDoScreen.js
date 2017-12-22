@@ -7,7 +7,7 @@ import { Container, Header, Content,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 import firebase from 'firebase';
-import { getMemoLists } from '../actions/';
+import { getTodoLists } from '../actions/';
 
 require('firebase/firestore')
 
@@ -25,7 +25,7 @@ export class ToDoScreen extends Component {
         querySnapshot.forEach((doc) => {
           memoList.push(doc.data());
         });
-        this.props.getMemoLists(memoList);
+        this.props.getTodoLists(memoList);
       })
       .catch((error) => {
         console.log(error);
@@ -37,14 +37,14 @@ export class ToDoScreen extends Component {
       <Container>
         <Content>
           {
-            this.props.memoList.map((memo, i) => {
+            this.props.todos.map((todo, i) => {
               return (
                 <SwipeRow
                   key={`memo-${i}`}
                   rightOpenValue={-75}
                   body={
                     <View>
-                      <Text>{memo.body}</Text>
+                      <Text>{todo.body}</Text>
                     </View>
                   }
                   right={
@@ -70,7 +70,7 @@ export class ToDoScreen extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser,
-  memoList: state.memoList,
+  todos: state.todos,
 });
 
-export default connect(mapStateToProps, { getMemoLists })(ToDoScreen);
+export default connect(mapStateToProps, { getTodoLists })(ToDoScreen);

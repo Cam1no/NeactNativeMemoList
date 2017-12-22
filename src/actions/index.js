@@ -5,7 +5,7 @@ export const setPassword = password => dispatch => dispatch({ type: 'CHANGE_PASS
 
 export const setUserName = username => dispatch => dispatch({ type: 'CHANGE_USERNAME', username });
 
-export const getMemoLists = lists => dispatch => dispatch({ type: 'GET_MEMO_LISTS', lists });
+export const getTodoLists = lists => dispatch => dispatch({ type: 'GET_MEMO_LISTS', lists });
 
 export const setCurrentUser =
   user => dispatch =>

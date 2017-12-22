@@ -47,12 +47,6 @@ const todos = (state = [], action) => {
         },
         ...state,
       ];
-    default:
-      return state;
-  }
-}
-const memoList = (state = [], action) => {
-  switch (action.type) {
     case 'GET_MEMO_LISTS':
       return action.lists
     default:
@@ -60,4 +54,4 @@ const memoList = (state = [], action) => {
   }
 }
 
-export default combineReducers({ email, password, todos, currentUser, memoList });
+export default combineReducers({ email, password, todos, currentUser });
