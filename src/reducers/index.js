@@ -47,16 +47,17 @@ const todos = (state = [], action) => {
         },
         ...state,
       ];
+    default:
+      return state;
+  }
+}
+const memoList = (state = [], action) => {
+  switch (action.type) {
     case 'GET_MEMO_LISTS':
-      const memoList = [];
-      action.lists.forEach((list) => {
-        memoList.push(list);
-      })
-      console.log("reducer", memoList);
-      return memoList;
+      return action.lists
     default:
       return state;
   }
 }
 
-export default combineReducers({ email, password, todos, currentUser });
+export default combineReducers({ email, password, todos, currentUser, memoList });

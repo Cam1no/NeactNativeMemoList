@@ -33,23 +33,30 @@ export class ToDoScreen extends Component {
   }
 
   render() {
+    console.log(this.props.memoList);
     return (
       <Container>
-        { console.log(this.props.memoList) }
         <Content>
-          <SwipeRow
-            rightOpenValue={-75}
-            body={
-              <View>
-                <Text>SwipeRow Body Text</Text>
-              </View>
-            }
-            right={
-              <Button danger onPress={() => alert('Trash')}>
-                <Icon active name="trash" />
-              </Button>
-            }
-          />
+          {
+            this.props.memoList.map((memo, i) => {
+              return (
+                <SwipeRow
+                  key={`memo-${i}`}
+                  rightOpenValue={-75}
+                  body={
+                    <View>
+                      <Text>{memo.body}</Text>
+                    </View>
+                  }
+                  right={
+                    <Button danger onPress={() => alert('Trash')}>
+                      <Icon active name="trash" />
+                    </Button>
+                  }
+                />
+              );
+            })
+          }
         </Content>
         <Footer>
           <Button>
@@ -64,7 +71,7 @@ export class ToDoScreen extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser,
-  memoList: [],
+  memoList: state.memoList,
 });
 
 export default connect(mapStateToProps, { getMemoLists })(ToDoScreen);
