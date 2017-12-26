@@ -7,6 +7,8 @@ export const setUserName = username => dispatch => dispatch({ type: 'CHANGE_USER
 
 export const getTodoLists = lists => dispatch => dispatch({ type: 'GET_MEMO_LISTS', lists });
 
+export const deleteTodo = todo => dispatch => dispatch({ type: 'DELETE_TODO', todo });
+
 export const setCurrentUser =
   user => dispatch =>
   dispatch({

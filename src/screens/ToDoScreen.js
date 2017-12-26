@@ -7,7 +7,7 @@ import { Container, Header, Content,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 import firebase from 'firebase';
-import { getTodoLists } from '../actions/';
+import { getTodoLists, deleteTodo } from '../actions/';
 
 require('firebase/firestore')
 
@@ -48,7 +48,10 @@ export class ToDoScreen extends Component {
                     </View>
                   }
                   right={
-                    <Button danger onPress={() => alert('Trash')}>
+                    <Button danger onPress={() => {
+                      this.props.deleteTodo(todo);
+                      console.log(this.props);
+                    }}>
                       <Icon active name="trash" />
                     </Button>
                   }
@@ -73,4 +76,4 @@ const mapStateToProps = state => ({
   todos: state.todos,
 });
 
-export default connect(mapStateToProps, { getTodoLists })(ToDoScreen);
+export default connect(mapStateToProps, { getTodoLists, deleteTodo })(ToDoScreen);

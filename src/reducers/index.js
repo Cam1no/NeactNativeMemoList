@@ -48,7 +48,11 @@ const todos = (state = [], action) => {
         ...state,
       ];
     case 'GET_MEMO_LISTS':
-      return action.lists
+      return action.lists;
+    case 'DELETE_TODO':
+      return state.filter((todo) => {
+        return todo.createdOn !== action.createdOn
+      });
     default:
       return state;
   }
