@@ -23,13 +23,25 @@ export class ToDoScreen extends Component {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          memoList.push(doc.data());
+          const todo = { id: doc.id, body: doc.data().body, createdOn: doc.data().createdOn }
+          memoList.push(todo);
         });
-        console.log('memoList', memoList);
-        console.log('this.props', this.props);
         this.props.getTodoTodos(memoList);
       })
       .catch((error) => {
+        console.log(error);
+      })
+  }
+
+  handleTrash(todo){
+    const db = firebase.firestore()
+    db.collection(`users/${this.props.currentUser.uid}/memos`).doc(todo.id)
+      .delete()
+      .then(data => {
+        console.log(data);
+        this.props.deleteTodo(todo);
+      })
+      .catch(error => {
         console.log(error);
       })
   }
@@ -50,7 +62,7 @@ export class ToDoScreen extends Component {
                     </View>
                   }
                   right={
-                    <Button danger onPress={() => this.props.deleteTodo(todo)}>
+                    <Button danger onPress={() => this.handleTrash(todo)}>
                       <Icon active name="trash" />
                     </Button>
                   }
