@@ -7,7 +7,7 @@ import { Container, Header, Content,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 import firebase from 'firebase';
-import { getTodoLists, deleteTodo } from '../actions/';
+import { getTodoTodos, deleteTodo } from '../actions/';
 
 require('firebase/firestore')
 
@@ -25,7 +25,9 @@ export class ToDoScreen extends Component {
         querySnapshot.forEach((doc) => {
           memoList.push(doc.data());
         });
-        this.props.getTodoLists(memoList);
+        console.log('memoList', memoList);
+        console.log('this.props', this.props);
+        this.props.getTodoTodos(memoList);
       })
       .catch((error) => {
         console.log(error);
@@ -76,4 +78,4 @@ const mapStateToProps = state => ({
   todos: state.todos,
 });
 
-export default connect(mapStateToProps, { getTodoLists, deleteTodo })(ToDoScreen);
+export default connect(mapStateToProps, { getTodoTodos, deleteTodo })(ToDoScreen);

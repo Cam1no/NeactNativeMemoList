@@ -64,8 +64,8 @@ export class LoginScreen extends Component {
 
 // storeに格納されているstateを引っ張り出す
 const mapStateToProps = state => ({
-  email: state.email,
-  password: state.password,
+  email: state.currentUser.email,
+  password: state.currentUser.password,
 });
 
 export default connect(mapStateToProps, {setEmail, setPassword, setCurrentUser})(LoginScreen);

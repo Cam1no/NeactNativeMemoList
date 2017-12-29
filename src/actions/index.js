@@ -5,7 +5,7 @@ export const setPassword = password => dispatch => dispatch({ type: 'CHANGE_PASS
 
 export const setUserName = username => dispatch => dispatch({ type: 'CHANGE_USERNAME', username });
 
-export const getTodoLists = lists => dispatch => dispatch({ type: 'GET_MEMO_LISTS', lists });
+export const getTodoTodos = todos => dispatch => dispatch({ type: 'GET_MEMO_LISTS', todos });
 
 export const deleteTodo = todo => dispatch => dispatch({ type: 'DELETE_TODO', todo });
 
