@@ -50,10 +50,7 @@ export class ToDoScreen extends Component {
                     </View>
                   }
                   right={
-                    <Button danger onPress={() => {
-                      this.props.deleteTodo(todo);
-                      console.log(this.props);
-                    }}>
+                    <Button danger onPress={() => this.props.deleteTodo(todo)}>
                       <Icon active name="trash" />
                     </Button>
                   }
