@@ -7,6 +7,7 @@ import { Container, Header, Content,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 import firebase from 'firebase';
+import { FlatList } from 'react-native';
 import { getTodoTodos, deleteTodo, setCurrentUser } from '../actions/';
 
 require('firebase/firestore')
@@ -27,6 +28,7 @@ export class ToDoListScreen extends Component {
           memoList.push(todo);
         });
         this.props.getTodoTodos(memoList);
+        this.forceUpdate();
       })
       .catch((error) => {
         console.log(error);
@@ -34,6 +36,7 @@ export class ToDoListScreen extends Component {
   }
 
   handleTrash(todo){
+    console.log(this);
     const db = firebase.firestore()
     db.collection(`users/${this.props.currentUser.uid}/memos`).doc(todo.id)
       .delete()
@@ -50,26 +53,25 @@ export class ToDoListScreen extends Component {
     return (
       <Container>
         <Content>
-          {
-            this.props.todos.map((todo, i) => {
-              return (
+          <List>
+            <FlatList
+              data={this.props.todos}
+              renderItem={({ item }) =>
                 <SwipeRow
-                  key={`memo-${i}`}
                   rightOpenValue={-75}
                   body={
                     <View>
-                      <Text>{todo.body}</Text>
+                      <Text style={{ paddingLeft: 15 }}>{item.body}</Text>
                     </View>
                   }
                   right={
-                    <Button danger onPress={() => this.handleTrash(todo)}>
+                    <Button danger onPress={() => this.handleTrash(item)}>
                       <Icon active name="trash" />
                     </Button>
                   }
-                />
-              );
-            })
-          }
+                />}
+              />
+          </List>
         </Content>
         <Footer>
           <Button>
