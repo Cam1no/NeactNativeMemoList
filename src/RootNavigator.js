@@ -1,10 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Button } from 'native-base';
 import { StackNavigator } from 'react-navigation';
-import LoginScreen from './screens/LoginScreen';
+import SignInScreen from './screens/SignInScreen';
 import SignUpScreen from './screens/SignUpScreen';
-import ToDoScreen from './screens/ToDoScreen';
+import ToDoListScreen from './screens/ToDoListScreen';
 import AddTodoScreen from './screens/AddTodoScreen';
 
 const RootNavigator = StackNavigator({
@@ -14,22 +12,28 @@ const RootNavigator = StackNavigator({
       headerTitle: 'Register',
     },
   },
-  Login: {
-    screen: LoginScreen,
+  SignIn: {
+    screen: SignInScreen,
     navigationOptions: {
-      headerTitle: 'Login',
+      headerTitle: 'SignIn',
     },
   },
-  ToDo: {
-    screen: ToDoScreen,
+  ToDoList: {
+    screen: ToDoListScreen,
     navigationOptions: {
-      headerTitle: 'ToDoList',
+      headerTitle: 'TODO一覧',
     },
   },
-  AddTodo: {
-    screen: AddTodoScreen,
+  CreateTodo: {
+    screen: CreateTodoScreen,
     navigationOptions: {
-      headerTitle: 'EditTodo',
+      headerTitle: 'TODOの作成',
+    },
+  },
+  EditTodo: {
+    screen: CreateTodoScreen,
+    navigationOptions: {
+      headerTitle: 'TODOの作成',
     },
   },
 });

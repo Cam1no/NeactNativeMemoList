@@ -11,7 +11,7 @@ import { getTodoTodos, deleteTodo } from '../actions/';
 
 require('firebase/firestore')
 
-export class ToDoScreen extends Component {
+export class ToDoListScreen extends Component {
   constructor(props){
     super(props);
   }
@@ -73,7 +73,7 @@ export class ToDoScreen extends Component {
         </Content>
         <Footer>
           <Button>
-            <Icon name='arrow-up' onPress={() => this.props.navigation.navigate('AddTodo')}/>
+            <Icon name='arrow-up' onPress={() => this.props.navigation.navigate('CreateTodo')}/>
           </Button>
         </Footer>
       </Container>
@@ -87,4 +87,4 @@ const mapStateToProps = state => ({
   todos: state.todos,
 });
 
-export default connect(mapStateToProps, { getTodoTodos, deleteTodo })(ToDoScreen);
+export default connect(mapStateToProps, { getTodoTodos, deleteTodo })(ToDoListScreen);

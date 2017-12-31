@@ -7,7 +7,7 @@ import { addTodo } from '../actions/';
 import firebase from 'firebase';
 require('firebase/firestore')
 
-export class AddTodoScreen extends Component {
+export class EditTodoScreen extends Component {
   constructor(props){
     super(props);
     state = {
@@ -58,4 +58,4 @@ const mapStateToProps = state => ({
   currentUser: state.currentUser,
 });
 
-export default connect(mapStateToProps,{ addTodo })(AddTodoScreen)
+export default connect(mapStateToProps,{ addTodo })(EditTodoScreen)

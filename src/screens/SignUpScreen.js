@@ -13,7 +13,7 @@ export class SignUpScreen extends Component {
     firebase.auth().createUserWithEmailAndPassword(this.props.email, this.props.password)
       .then((user) => {
         console.log("success", user);
-        this.props.navigation.navigate('ToDo');
+        this.props.navigation.navigate('ToDoList');
       })
       .catch((error) => {
         console.log("firebase error", error);
@@ -50,7 +50,7 @@ export class SignUpScreen extends Component {
               </Text>
             </Button>
           </Form>
-          <Button danger onPress={() => this.props.navigation.navigate('Login')}>
+          <Button danger onPress={() => this.props.navigation.navigate('SignIn')}>
             <Text>
               Login
             </Text>

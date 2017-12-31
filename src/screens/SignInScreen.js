@@ -14,7 +14,7 @@ const resetAction = NavigationActions.reset({
   ]
 });
 
-export class LoginScreen extends Component {
+export class SignInScreen extends Component {
   constructor(props){
     super(props);
   }
@@ -68,4 +68,4 @@ const mapStateToProps = state => ({
   password: state.currentUser.password,
 });
 
-export default connect(mapStateToProps, {setEmail, setPassword, setCurrentUser})(LoginScreen);
+export default connect(mapStateToProps, {setEmail, setPassword, setCurrentUser})(SignInScreen);
