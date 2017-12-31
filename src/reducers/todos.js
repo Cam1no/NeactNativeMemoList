@@ -14,8 +14,10 @@ const todos = (state = initialState, action) => {
     case 'GET_TODO_LISTS':
       return action.todos;
     case 'DELETE_TODO':
+      console.log('action', action);
       return state.filter((todo) => {
-        return todo.createdOn !== action.createdOn
+        console.log('todo', todo);
+        return todo.id !== action.todo.id
       });
     default:
       return state;
