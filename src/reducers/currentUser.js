@@ -8,22 +8,21 @@ const initialState = {
 const currentUser = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_CURRENT_USER':
-      console.log('state', state)
-      console.log('action', action)
       return Object.assign({}, state, {
         displayName: action.payload.displayName,
-        email: action.payload.email,
         uid: action.payload.uid,
       })
+    case 'SIGN_UP_USER':
+      return Object.assign({}, state, {
+        displayName: action.payload.displayName,
+        uid: action.payload.uid,
+        email: action.payload.email,
+      })
     case 'CHANGE_EMAIL':
-      console.log('state', state)
-      console.log('action', action)
       return Object.assign({}, state, {
         email: action.email
       })
     case 'CHANGE_PASSWORD':
-      console.log('state', state)
-      console.log('action', action)
       return Object.assign({}, state, {
         password: action.password
       })

@@ -11,9 +11,7 @@ const todos = (state = initialState, action) => {
         },
         ...state,
       ];
-    case 'GET_MEMO_LISTS':
-      console.log('state.todos', state)
-      console.log('action.todos', action)
+    case 'GET_TODO_LISTS':
       return action.todos;
     case 'DELETE_TODO':
       return state.filter((todo) => {

@@ -5,7 +5,7 @@ export const setPassword = password => dispatch => dispatch({ type: 'CHANGE_PASS
 
 export const setUserName = username => dispatch => dispatch({ type: 'CHANGE_USERNAME', username });
 
-export const getTodoTodos = todos => dispatch => dispatch({ type: 'GET_MEMO_LISTS', todos });
+export const getTodoTodos = todos => dispatch => dispatch({ type: 'GET_TODO_LISTS', todos });
 
 export const deleteTodo = todo => dispatch => dispatch({ type: 'DELETE_TODO', todo });
 
@@ -15,8 +15,18 @@ export const setCurrentUser =
     type: 'SET_CURRENT_USER',
     payload: {
       displayName: user.displayName,
-      email: user.email,
       uid: user.uid,
+    }
+  });
+
+export const SignUpUser =
+  user => dispatch =>
+  dispatch({
+    type: 'SIGN_UP_USER',
+    payload: {
+      displayName: user.displayName,
+      uid: user.uid,
+      email: user.email,
     }
   });
 

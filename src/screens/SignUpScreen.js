@@ -5,6 +5,14 @@ import { Container, Header, Content, Form, Item, Input, Body, Title, Button, Tex
 import { connect } from 'react-redux';
 import { setEmail, setPassword, setUserName } from '../actions/index';
 import firebase from 'firebase';
+import { NavigationActions } from 'react-navigation';
+
+const resetAction = NavigationActions.reset({
+  index: 0,
+  actions: [
+    NavigationActions.navigate({ routeName: 'ToDoList'})
+  ]
+});
 
 export class SignUpScreen extends Component {
 
@@ -13,6 +21,8 @@ export class SignUpScreen extends Component {
     firebase.auth().createUserWithEmailAndPassword(this.props.email, this.props.password)
       .then((user) => {
         console.log("success", user);
+        this.props.setCurrentUser(user);
+        this.props.navigation.dispatch(resetAction);
         this.props.navigation.navigate('ToDoList');
       })
       .catch((error) => {

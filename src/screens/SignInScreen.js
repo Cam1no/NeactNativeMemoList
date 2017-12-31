@@ -10,7 +10,7 @@ import { NavigationActions } from 'react-navigation';
 const resetAction = NavigationActions.reset({
   index: 0,
   actions: [
-    NavigationActions.navigate({ routeName: 'ToDo'})
+    NavigationActions.navigate({ routeName: 'ToDoList'})
   ]
 });
 

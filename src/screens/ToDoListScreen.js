@@ -7,7 +7,7 @@ import { Container, Header, Content,
          Footer,Icon, Right, Left, SwipeRow
         } from 'native-base';
 import firebase from 'firebase';
-import { getTodoTodos, deleteTodo } from '../actions/';
+import { getTodoTodos, deleteTodo, setCurrentUser } from '../actions/';
 
 require('firebase/firestore')
 

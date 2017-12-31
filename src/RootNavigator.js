@@ -3,7 +3,8 @@ import { StackNavigator } from 'react-navigation';
 import SignInScreen from './screens/SignInScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import ToDoListScreen from './screens/ToDoListScreen';
-import AddTodoScreen from './screens/AddTodoScreen';
+import CreateTodoScreen from './screens/CreateTodoScreen';
+import EditTodoScreen from './screens/EditTodoScreen';
 
 const RootNavigator = StackNavigator({
   SignUp: {
